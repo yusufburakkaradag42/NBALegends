@@ -1,13 +1,11 @@
-import { Container } from "react-bootstrap";
-import CardContainer from "./components/CardContainer";
+import "./App.css";
 import Header from "./components/Header";
 
 function App() {
   return (
-    <Container className="text-center mt-5" >
-      <Header/>
-      <CardContainer/>
-    </Container>
+    <div>
+      <Header />
+    </div>
   );
 }
 

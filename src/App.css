@@ -1,0 +1,73 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: darkorange !important;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.icon-div {
+  border-radius: 4px !important;
+}
+
+.header input {
+  width: 400px;
+  padding: 0.3rem 2.4rem;
+  font-size: 18px;
+  border: none;
+}
+
+/* card */
+.box {
+  margin: auto;
+}
+.card {
+  width: 300px;
+  position: relative;
+  height: 375px;
+  overflow: hidden;
+}
+.card img {
+  height: 330px;
+}
+
+.card-text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  background-color: aliceblue;
+  transform: translateY(100%);
+  transition: 0.9 ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 4;
+}
+
+.card-text ul {
+  text-decoration: none;
+}
+i {
+  color: rgba(171, 66, 27, 0.905);
+}
+.card:hover .card-text {
+  background-color: rgba(0, 0, 0, 0.192);
+  backdrop-filter: blur(8px);
+  transform: translateY(0);
+}

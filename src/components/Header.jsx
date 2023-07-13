@@ -1,14 +1,58 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import Image from "react-bootstrap/Image"
-import imgLgo from '../assets/nba-logo.png'
-const Header = () => {
-  return (
-    <Container>
-        <Image src={imgLgo} width="250px"></Image>
-        <h1 className='my-2 font-monospace display-4'>NBA Legends</h1>
-    </Container>
-  )
-}
+import React, { useState } from "react";
+import nba from "../assets/nba-logo.png";
+import { data } from "../helpers/data";
 
-export default Header
+const Header = () => {
+  const [inputValue, setInputValue] = useState("");
+  const dataFilter = data.filter((item) =>
+    item.name.toLocaleLowerCase().startsWith(inputValue.toLocaleLowerCase())
+  );
+
+  return (
+    <div>
+      <div className="header">
+        <img src={nba} width="150px" alt="" />
+        <h1 className="p-2 h1">NBA Legends</h1>
+        <input
+          className="form-control me-2"
+          type="search"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Search Player..."
+          aria-label="Search"
+        />
+      </div>
+      <div className=" d-flex my-4 p-2">
+        <div className="box row justify-content-center gap-5">
+          {dataFilter.map((item, index) => {
+            const { img, name, statistics } = item;
+            return (
+              <div key={index} className="card col-4 mb-4">
+                <div className="card-img">
+                  <img src={img} className="card-img-top py-2" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">{name}</h5>
+                  </div>
+                </div>
+
+                <div className="card-text">
+                  <ul>
+                    <h2>{name}</h2>
+                    {statistics.map((item) => (
+                      <p>
+                        <i className="fa-solid fa-basketball"> </i>
+                        <span> {item}</span>
+                      </p>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
